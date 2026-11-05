@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clima por Ubicación y Búsqueda</title>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-default">
+    <div class="container">
+        <h1>🌤️ Clima Actual</h1>
+
+        <div class="search-box">
+            <input type="text" id="city-input" placeholder="Buscar ciudad...">
+            <button id="search-btn">Buscar</button>
+        </div>
+
+        <button id="location-btn">📍 Usar mi ubicación</button>
+
+        <!-- Favoritos -->
+        <div id="favorites-container">
+            <h2>⭐ Ciudades favoritas</h2>
+            <div id="favorites-list"></div>
+        </div>
+
+        <!-- Clima actual -->
+        <div id="weather-container">
+            <div id="weather-icon">🌍</div>
+            <div id="weather-info">
+                <div id="city-header">
+                    <p id="city-name">Esperando ubicación...</p>
+                    <button id="fav-btn" class="fav-btn" title="Añadir a favoritos">☆</button>
+                </div>
+                <p id="temperature">--°C</p>
+                <p id="feels-like">ST: --°C</p>
+                <p id="description">--</p>
+                <p id="humidity">Humedad: --%</p>
+                <p id="wind">Viento: -- km/h</p>
+                <p id="sun-times">🌅 -- · 🌇 --</p>
+            </div>
+        </div>
+
+        <!-- Calidad del aire -->
+        <div id="air-container">
+            <h2>🌬️ Calidad del aire</h2>
+            <div id="air-card" class="air-card">
+                <p id="air-aqi">--</p>
+                <p id="air-details">--</p>
+            </div>
+        </div>
+
+        <!-- Próximas 24h -->
+        <div id="hourly-container">
+            <h2>⏱️ Próximas 24 horas</h2>
+            <div id="hourly-list"></div>
+        </div>
+
+        <!-- Pronóstico 5 días -->
+        <div id="forecast-container">
+            <h2>📅 Pronóstico 5 días <span class="hint">(clic en un día para ver más)</span></h2>
+            <div id="forecast-list"></div>
+        </div>
+
+        <!-- Gráfico -->
+        <div id="chart-container">
+            <h2>📈 Tendencia de temperatura (5 días)</h2>
+            <canvas id="temp-chart"></canvas>
+        </div>
+
+        <p id="error-message"></p>
+
+        <footer class="credits">
+            <p>
+                Datos del clima proporcionados por
+                <a href="https://openweathermap.org/" target="_blank" rel="noopener noreferrer">OpenWeatherMap</a>
+            </p>
+            <p class="credits-sub">
+                🌍 <a href="https://openweathermap.org/" target="_blank" rel="noopener noreferrer">openweathermap.org</a>
+            </p>
+        </footer>
+    </div>
+
+    <!-- Modal -->
+    <div id="day-modal" class="modal">
+        <div class="modal-content">
+            <button id="modal-close" class="modal-close" aria-label="Cerrar">✕</button>
+            <h2 id="modal-title">Pronóstico del día</h2>
+            <div id="modal-list"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
