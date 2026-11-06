@@ -72,8 +72,20 @@ function getWindDirection(deg) {
     return dirs[Math.round(deg / 22.5) % 16];
 }
 
-function getWeatherIconImg(iconCode, size = '') {
-    return `<img src="https://openweathermap.org/img/wn/${iconCode}${size}.png" alt="clima">`;
+// ACÁ ESTÁ LA FUNCIÓN DE LOS EMOJIS QUE TE GUSTAN
+function getWeatherEmoji(iconCode) {
+    const iconMap = {
+        '01d': '☀️', '01n': '🌙',
+        '02d': '⛅', '02n': '☁️',
+        '03d': '☁️', '03n': '☁️',
+        '04d': '☁️', '04n': '☁️',
+        '09d': '🌧️', '09n': '🌧️',
+        '10d': '🌦️', '10n': '🌧️',
+        '11d': '⛈️', '11n': '⛈️',
+        '13d': '❄️', '13n': '❄️',
+        '50d': '🌫️', '50n': '🌫️'
+    };
+    return iconMap[iconCode] || '🌍';
 }
 
 function formatLocalTime(utc, tz) {
@@ -149,7 +161,9 @@ function displayWeather(data) {
     const hours = Math.floor(daylightSeconds / 3600);
     const minutes = Math.floor((daylightSeconds % 3600) / 60);
     moonInfoEl.innerHTML = `☀️ ${hours}h ${minutes}m<br>${getMoonPhase()}`;
-    weatherIconEl.innerHTML = getWeatherIconImg(weather[0].icon, '@4x');
+    
+    // ACÁ APLICAMOS EL EMOJI EN EL CLIMA ACTUAL
+    weatherIconEl.textContent = getWeatherEmoji(weather[0].icon);
     
     cityInput.value = name;
     currentTimezoneOffset = timezone;
@@ -220,9 +234,10 @@ function displayHourly(data) {
         const date = new Date(item.dt * 1000);
         const card = document.createElement('div');
         card.className = 'hour-card';
+        // ACÁ APLICAMOS EL EMOJI EN LAS HORAS
         card.innerHTML = `
             <div class="hour-time">${date.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' })}</div>
-            <div class="hour-icon">${getWeatherIconImg(item.weather[0].icon)}</div>
+            <div class="hour-icon">${getWeatherEmoji(item.weather[0].icon)}</div>
             <div class="hour-temp">${Math.round(item.main.temp)}°C</div>
             <div class="hour-precip">${getPrecipText(item)}</div>
         `;
@@ -268,9 +283,10 @@ function displayForecast(data) {
         card.className = 'forecast-card';
         card.setAttribute('role', 'button');
         card.setAttribute('tabindex', '0');
+        // ACÁ APLICAMOS EL EMOJI EN LOS 5 DÍAS
         card.innerHTML = `
             <div class="forecast-day">${day.date.toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric', month: 'short' })}</div>
-            <div class="forecast-icon">${getWeatherIconImg(day.icons[mid])}</div>
+            <div class="forecast-icon">${getWeatherEmoji(day.icons[mid])}</div>
             <div class="forecast-temp">${max}°C<span class="min">${min}°C</span></div>
             <div class="forecast-desc">${desc}</div>
             ${precipHtml}
@@ -293,9 +309,10 @@ function openDayModal(dayKey, date) {
         const dateObj = new Date(item.dt * 1000);
         const row = document.createElement('div');
         row.className = 'modal-row';
+        // ACÁ APLICAMOS EL EMOJI EN EL MODAL
         row.innerHTML = `
             <span class="row-time">${dateObj.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' })}</span>
-            <span class="row-icon">${getWeatherIconImg(item.weather[0].icon)}</span>
+            <span class="row-icon">${getWeatherEmoji(item.weather[0].icon)}</span>
             <span class="row-desc">${item.weather[0].description} · ${item.main.humidity}%${getPrecipText(item) ? `<span class="row-precip">${getPrecipText(item)}</span>` : ''}</span>
             <span class="row-temp">${Math.round(item.main.temp)}°C</span>
         `;
