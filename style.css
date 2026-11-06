@@ -159,20 +159,9 @@ h1 {
     min-height: 150px;
 }
 
-/* ÍCONO DEL CLIMA ACTUAL (Ajustado para OpenWeatherMap) */
+/* Ícono del clima actual (EMOJI) */
 #weather-icon {
-    width: 100px;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#weather-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+    font-size: 4rem;
 }
 
 #weather-info { text-align: left; flex: 1; }
@@ -332,16 +321,11 @@ h1 {
 .hour-card:hover { transform: translateY(-3px); }
 .hour-time { font-size: 0.8rem; color: #666; font-weight: bold; }
 
-/* ÍCONO DE LAS HORAS (Ajustado para OpenWeatherMap) */
+/* Ícono de las horas (EMOJI) */
 .hour-icon {
-    width: 45px;
-    height: 45px;
-    margin: 2px 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-size: 1.6rem;
+    margin: 5px 0;
 }
-.hour-icon img { width: 100%; height: 100%; object-fit: contain; }
 
 .hour-temp { font-size: 0.95rem; color: #333; font-weight: bold; }
 .hour-precip { font-size: 0.7rem; color: #4a90e2; margin-top: 3px; min-height: 12px; font-weight: bold; }
@@ -389,16 +373,11 @@ h1 {
 .forecast-card:hover::after { color: #74ebd5; }
 .forecast-day { font-size: 0.85rem; font-weight: bold; color: #555; text-transform: capitalize; margin-bottom: 6px; }
 
-/* ÍCONO DE LOS 5 DÍAS (Ajustado para OpenWeatherMap) */
+/* Ícono de los 5 días (EMOJI) */
 .forecast-icon {
-    width: 55px;
-    height: 55px;
-    margin: 2px 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-size: 1.8rem;
+    margin: 5px 0;
 }
-.forecast-icon img { width: 100%; height: 100%; object-fit: contain; }
 
 .forecast-temp { font-size: 0.95rem; color: #333; font-weight: bold; }
 .forecast-temp .min { color: #999; font-weight: normal; font-size: 0.85rem; display: block; }
@@ -486,15 +465,8 @@ h1 {
 
 .modal-row .row-time { font-size: 0.9rem; color: #555; font-weight: bold; min-width: 55px; text-align: left; }
 
-/* ÍCONO DEL MODAL (Ajustado para OpenWeatherMap) */
-.modal-row .row-icon {
-    width: 35px;
-    height: 35px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.modal-row .row-icon img { width: 100%; height: 100%; object-fit: contain; }
+/* Ícono del modal (EMOJI) */
+.modal-row .row-icon { font-size: 1.4rem; }
 
 .modal-row .row-desc { font-size: 0.85rem; color: #777; text-transform: capitalize; flex: 1; text-align: left; margin-left: 12px; }
 .modal-row .row-precip { display: block; font-size: 0.75rem; color: #4a90e2; margin-top: 2px; font-weight: bold; }
