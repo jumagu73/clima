@@ -159,7 +159,7 @@ h1 {
     min-height: 150px;
 }
 
-/* Nuevo estilo para el ícono de imagen */
+/* Ícono del clima actual */
 #weather-icon {
     width: 100px;
     height: 100px;
@@ -351,7 +351,7 @@ h1 {
 
 .hour-time { font-size: 0.8rem; color: #666; font-weight: bold; }
 
-/* Nuevo estilo para los íconos de las horas */
+/* Íconos de las horas */
 .hour-icon {
     width: 45px;
     height: 45px;
@@ -443,7 +443,7 @@ h1 {
     margin-bottom: 6px;
 }
 
-/* Nuevo estilo para los íconos de los días */
+/* Íconos de los 5 días */
 .forecast-icon {
     width: 55px;
     height: 55px;
@@ -584,7 +584,7 @@ h1 {
     text-align: left;
 }
 
-/* Nuevo estilo para los íconos dentro del modal */
+/* Íconos del modal */
 .modal-row .row-icon {
     width: 35px;
     height: 35px;
