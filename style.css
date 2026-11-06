@@ -1,6 +1,3 @@
-/* ============================================================
-   RESET Y BASE
-   ============================================================ */
 * {
     margin: 0;
     padding: 0;
@@ -17,7 +14,6 @@ body {
     transition: background 0.8s ease;
 }
 
-/* Fondos dinámicos */
 body.bg-default       { background: linear-gradient(135deg, #74ebd5, #ACB6E5); }
 body.bg-clear-day     { background: linear-gradient(135deg, #56CCF2, #2F80ED); }
 body.bg-clear-night   { background: linear-gradient(135deg, #0F2027, #203A43, #2C5364); }
@@ -44,9 +40,6 @@ h1 {
     font-size: 1.8rem;
 }
 
-/* ============================================================
-   BÚSQUEDA Y BOTONES
-   ============================================================ */
 .search-box {
     display: flex;
     gap: 10px;
@@ -89,9 +82,6 @@ h1 {
 }
 #location-btn:hover { background: #8e9dd1; }
 
-/* ============================================================
-   FAVORITOS
-   ============================================================ */
 #favorites-container {
     margin-bottom: 20px;
     display: none;
@@ -145,9 +135,6 @@ h1 {
 .fav-chip:hover .remove { color: #fff; }
 .fav-chip .remove:hover { color: #e74c3c; }
 
-/* ============================================================
-   CLIMA ACTUAL
-   ============================================================ */
 #weather-container {
     display: flex;
     align-items: center;
@@ -159,7 +146,6 @@ h1 {
     min-height: 150px;
 }
 
-/* Ícono del clima actual */
 #weather-icon {
     width: 100px;
     height: 100px;
@@ -231,9 +217,6 @@ h1 {
     margin: 5px 0;
 }
 
-/* ============================================================
-   GRILLA DE DETALLES EXTRA
-   ============================================================ */
 .details-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -266,9 +249,6 @@ h1 {
     font-weight: bold;
 }
 
-/* ============================================================
-   CALIDAD DEL AIRE
-   ============================================================ */
 #air-container {
     margin-top: 20px;
     display: none;
@@ -295,32 +275,11 @@ h1 {
 .air-card.aqi-4 { border-left-color: #FF9800; }
 .air-card.aqi-5 { border-left-color: #F44336; }
 
-#air-aqi {
-    font-size: 1rem;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 5px;
-}
+#air-aqi { font-size: 1rem; font-weight: bold; color: #333; margin-bottom: 5px; }
+#air-details { font-size: 0.85rem; color: #777; }
 
-#air-details {
-    font-size: 0.85rem;
-    color: #777;
-}
-
-/* ============================================================
-   POR HORAS
-   ============================================================ */
-#hourly-container {
-    margin-top: 25px;
-    display: none;
-    text-align: left;
-}
-
-#hourly-container h2 {
-    font-size: 1.15rem;
-    color: #333;
-    margin-bottom: 12px;
-}
+#hourly-container { margin-top: 25px; display: none; text-align: left; }
+#hourly-container h2 { font-size: 1.15rem; color: #333; margin-bottom: 12px; }
 
 #hourly-list {
     display: flex;
@@ -348,53 +307,16 @@ h1 {
 }
 
 .hour-card:hover { transform: translateY(-3px); }
-
 .hour-time { font-size: 0.8rem; color: #666; font-weight: bold; }
 
-/* Íconos de las horas */
-.hour-icon {
-    width: 45px;
-    height: 45px;
-    margin: 2px 0;
-}
-
-.hour-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
+.hour-icon { width: 45px; height: 45px; margin: 2px 0; }
+.hour-icon img { width: 100%; height: 100%; object-fit: contain; }
 .hour-temp { font-size: 0.95rem; color: #333; font-weight: bold; }
+.hour-precip { font-size: 0.7rem; color: #4a90e2; margin-top: 3px; min-height: 12px; font-weight: bold; }
 
-.hour-precip {
-    font-size: 0.7rem;
-    color: #4a90e2;
-    margin-top: 3px;
-    min-height: 12px;
-    font-weight: bold;
-}
-
-/* ============================================================
-   PRONÓSTICO 5 DÍAS
-   ============================================================ */
-#forecast-container {
-    margin-top: 25px;
-    display: none;
-    text-align: left;
-}
-
-#forecast-container h2 {
-    font-size: 1.15rem;
-    color: #333;
-    margin-bottom: 12px;
-}
-
-#forecast-container h2 .hint {
-    font-size: 0.75rem;
-    color: #999;
-    font-weight: normal;
-    font-style: italic;
-}
+#forecast-container { margin-top: 25px; display: none; text-align: left; }
+#forecast-container h2 { font-size: 1.15rem; color: #333; margin-bottom: 12px; }
+#forecast-container h2 .hint { font-size: 0.75rem; color: #999; font-weight: normal; font-style: italic; }
 
 #forecast-list {
     display: grid;
@@ -416,11 +338,7 @@ h1 {
     align-items: center;
 }
 
-.forecast-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-}
-
+.forecast-card:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); }
 .forecast-card:active { transform: scale(0.97); }
 
 .forecast-card::after {
@@ -434,54 +352,15 @@ h1 {
 }
 
 .forecast-card:hover::after { color: #74ebd5; }
+.forecast-day { font-size: 0.85rem; font-weight: bold; color: #555; text-transform: capitalize; margin-bottom: 6px; }
 
-.forecast-day {
-    font-size: 0.85rem;
-    font-weight: bold;
-    color: #555;
-    text-transform: capitalize;
-    margin-bottom: 6px;
-}
-
-/* Íconos de los 5 días */
-.forecast-icon {
-    width: 55px;
-    height: 55px;
-    margin: 2px 0;
-}
-
-.forecast-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
+.forecast-icon { width: 55px; height: 55px; margin: 2px 0; }
+.forecast-icon img { width: 100%; height: 100%; object-fit: contain; }
 .forecast-temp { font-size: 0.95rem; color: #333; font-weight: bold; }
+.forecast-temp .min { color: #999; font-weight: normal; font-size: 0.85rem; display: block; }
+.forecast-desc { font-size: 0.75rem; color: #777; text-transform: capitalize; margin-top: 4px; }
+.forecast-precip { font-size: 0.7rem; color: #4a90e2; margin-top: 4px; line-height: 1.3; }
 
-.forecast-temp .min {
-    color: #999;
-    font-weight: normal;
-    font-size: 0.85rem;
-    display: block;
-}
-
-.forecast-desc {
-    font-size: 0.75rem;
-    color: #777;
-    text-transform: capitalize;
-    margin-top: 4px;
-}
-
-.forecast-precip {
-    font-size: 0.7rem;
-    color: #4a90e2;
-    margin-top: 4px;
-    line-height: 1.3;
-}
-
-/* ============================================================
-   GRÁFICO
-   ============================================================ */
 #chart-container {
     margin-top: 25px;
     display: none;
@@ -491,17 +370,9 @@ h1 {
     padding: 20px 15px;
 }
 
-#chart-container h2 {
-    font-size: 1.15rem;
-    color: #333;
-    margin-bottom: 15px;
-}
-
+#chart-container h2 { font-size: 1.15rem; color: #333; margin-bottom: 15px; }
 #temp-chart { max-height: 220px; }
 
-/* ============================================================
-   MODAL
-   ============================================================ */
 .modal {
     display: none;
     position: fixed;
@@ -516,7 +387,6 @@ h1 {
 }
 
 .modal.show { display: flex; }
-
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
 .modal-content {
@@ -532,10 +402,7 @@ h1 {
     animation: slideUp 0.25s ease;
 }
 
-@keyframes slideUp {
-    from { transform: translateY(20px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
+@keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
 .modal-close {
     position: absolute;
@@ -554,16 +421,7 @@ h1 {
 }
 
 .modal-close:hover { background: #e74c3c; color: #fff; }
-
-#modal-title {
-    font-size: 1.2rem;
-    color: #333;
-    margin-bottom: 15px;
-    text-align: left;
-    text-transform: capitalize;
-    padding-right: 30px;
-}
-
+#modal-title { font-size: 1.2rem; color: #333; margin-bottom: 15px; text-align: left; text-transform: capitalize; padding-right: 30px; }
 #modal-list { display: flex; flex-direction: column; gap: 8px; }
 
 .modal-row {
@@ -576,60 +434,15 @@ h1 {
     border: 1px solid #eee;
 }
 
-.modal-row .row-time {
-    font-size: 0.9rem;
-    color: #555;
-    font-weight: bold;
-    min-width: 55px;
-    text-align: left;
-}
-
-/* Íconos del modal */
-.modal-row .row-icon {
-    width: 35px;
-    height: 35px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.modal-row .row-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-.modal-row .row-desc {
-    font-size: 0.85rem;
-    color: #777;
-    text-transform: capitalize;
-    flex: 1;
-    text-align: left;
-    margin-left: 12px;
-}
-
-.modal-row .row-precip {
-    display: block;
-    font-size: 0.75rem;
-    color: #4a90e2;
-    margin-top: 2px;
-    font-weight: bold;
-}
-
-.modal-row .row-temp {
-    font-size: 1rem;
-    color: #333;
-    font-weight: bold;
-    min-width: 50px;
-    text-align: right;
-}
-
+.modal-row .row-time { font-size: 0.9rem; color: #555; font-weight: bold; min-width: 55px; text-align: left; }
+.modal-row .row-icon { width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; }
+.modal-row .row-icon img { width: 100%; height: 100%; object-fit: contain; }
+.modal-row .row-desc { font-size: 0.85rem; color: #777; text-transform: capitalize; flex: 1; text-align: left; margin-left: 12px; }
+.modal-row .row-precip { display: block; font-size: 0.75rem; color: #4a90e2; margin-top: 2px; font-weight: bold; }
+.modal-row .row-temp { font-size: 1rem; color: #333; font-weight: bold; min-width: 50px; text-align: right; }
 .modal-content::-webkit-scrollbar { width: 6px; }
 .modal-content::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
 
-/* ============================================================
-   CRÉDITOS Y ERROR
-   ============================================================ */
 .credits {
     margin-top: 30px;
     padding-top: 18px;
@@ -640,26 +453,12 @@ h1 {
     line-height: 1.6;
 }
 
-.credits a {
-    color: #5bc0de;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.2s;
-}
-
+.credits a { color: #5bc0de; text-decoration: none; font-weight: bold; transition: color 0.2s; }
 .credits a:hover { color: #74ebd5; text-decoration: underline; }
-
 .credits-sub { font-size: 0.75rem; opacity: 0.85; }
 
-#error-message {
-    color: #e74c3c;
-    margin-top: 15px;
-    font-weight: bold;
-}
+#error-message { color: #e74c3c; margin-top: 15px; font-weight: bold; }
 
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
 @media (max-width: 480px) {
     .container { padding: 20px; }
     h1 { font-size: 1.5rem; }

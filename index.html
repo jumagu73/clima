@@ -5,13 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clima por Ubicación y Búsqueda</title>
 
-    <!-- Ícono de la página -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-
-    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-default">
@@ -25,13 +20,11 @@
 
         <button id="location-btn">📍 Usar mi ubicación</button>
 
-        <!-- Favoritos -->
         <div id="favorites-container">
             <h2>⭐ Ciudades favoritas</h2>
             <div id="favorites-list"></div>
         </div>
 
-        <!-- Clima actual -->
         <div id="weather-container">
             <div id="weather-icon">🌍</div>
             <div id="weather-info">
@@ -46,7 +39,6 @@
             </div>
         </div>
 
-        <!-- Detalles extra -->
         <div id="details-grid" class="details-grid">
             <div class="detail-item">
                 <span class="detail-label">Humedad</span>
@@ -74,7 +66,6 @@
             </div>
         </div>
 
-        <!-- Calidad del aire -->
         <div id="air-container">
             <h2>🌬️ Calidad del aire</h2>
             <div id="air-card" class="air-card">
@@ -83,19 +74,16 @@
             </div>
         </div>
 
-        <!-- Próximas 24h -->
         <div id="hourly-container">
             <h2>⏱️ Próximas 24 horas</h2>
             <div id="hourly-list"></div>
         </div>
 
-        <!-- Pronóstico 5 días -->
         <div id="forecast-container">
             <h2>📅 Pronóstico 5 días <span class="hint">(clic en un día para ver más)</span></h2>
             <div id="forecast-list"></div>
         </div>
 
-        <!-- Gráfico -->
         <div id="chart-container">
             <h2>📈 Tendencia de temperatura (5 días)</h2>
             <canvas id="temp-chart"></canvas>
@@ -114,7 +102,6 @@
         </footer>
     </div>
 
-    <!-- Modal -->
     <div id="day-modal" class="modal">
         <div class="modal-content">
             <button id="modal-close" class="modal-close" aria-label="Cerrar">✕</button>
