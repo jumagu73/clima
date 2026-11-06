@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clima por Ubicación y Búsqueda</title>
+
+    <!-- Ícono -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
@@ -36,12 +39,38 @@
                     <p id="city-name">Esperando ubicación...</p>
                     <button id="fav-btn" class="fav-btn" title="Añadir a favoritos">☆</button>
                 </div>
+                <p id="local-time">🕒 --:--:--</p>
                 <p id="temperature">--°C</p>
                 <p id="feels-like">ST: --°C</p>
                 <p id="description">--</p>
-                <p id="humidity">Humedad: --%</p>
-                <p id="wind">Viento: -- km/h</p>
-                <p id="sun-times">🌅 -- · 🌇 --</p>
+            </div>
+        </div>
+
+        <!-- Detalles extra -->
+        <div id="details-grid" class="details-grid">
+            <div class="detail-item">
+                <span class="detail-label">Humedad</span>
+                <span class="detail-value" id="humidity">--%</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Viento</span>
+                <span class="detail-value" id="wind">-- km/h</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Visibilidad</span>
+                <span class="detail-value" id="visibility">-- km</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Presión</span>
+                <span class="detail-value" id="pressure">-- hPa</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Amanecer / Atardecer</span>
+                <span class="detail-value" id="sun-times">🌅 -- · 🌇 --</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Luz solar / Fase lunar</span>
+                <span class="detail-value" id="moon-info">☀️ --h · 🌑 --</span>
             </div>
         </div>
 
