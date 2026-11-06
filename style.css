@@ -34,7 +34,7 @@ body.bg-mist          { background: linear-gradient(135deg, #bdc3c7, #95a5a6); }
     padding: 30px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     width: 100%;
-    max-width: 550px;
+    max-width: 600px; /* Un poquito más ancho para que entren bien los 5 días */
     text-align: center;
 }
 
@@ -159,7 +159,6 @@ h1 {
     min-height: 150px;
 }
 
-/* Ícono del clima actual (EMOJI PC) */
 #weather-icon {
     font-size: 5.5rem;
     line-height: 1;
@@ -330,7 +329,7 @@ h1 {
 .hour-precip { font-size: 0.7rem; color: #4a90e2; margin-top: 3px; min-height: 12px; font-weight: bold; }
 
 /* ============================================================
-   PRONÓSTICO 5 DÍAS
+   PRONÓSTICO 5 DÍAS (FORZADO A 5 COLUMNAS)
    ============================================================ */
 #forecast-container { margin-top: 25px; display: none; text-align: left; }
 #forecast-container h2 { font-size: 1.15rem; color: #333; margin-bottom: 12px; }
@@ -338,14 +337,14 @@ h1 {
 
 #forecast-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 10px;
+    grid-template-columns: repeat(5, 1fr); /* 5 columnas exactas */
+    gap: 8px; /* Espacio entre tarjetas */
 }
 
 .forecast-card {
     background: #f9f9f9;
     border-radius: 12px;
-    padding: 15px 8px;
+    padding: 12px 4px; /* Achicamos el padding interno para que no se desborde */
     text-align: center;
     transition: transform 0.2s, box-shadow 0.2s;
     border: 1px solid #eee;
@@ -354,8 +353,8 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between; /* Distribuye el contenido uniformemente */
-    min-height: 160px; /* Le da una altura fija para que no se estiren */
+    justify-content: space-between;
+    min-height: 160px;
 }
 
 .forecast-card:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); }
@@ -365,19 +364,19 @@ h1 {
     content: '▸';
     position: absolute;
     top: 6px;
-    right: 8px;
+    right: 6px;
     font-size: 0.7rem;
     color: #bbb;
     transition: color 0.2s;
 }
 
 .forecast-card:hover::after { color: #74ebd5; }
-.forecast-day { font-size: 0.85rem; font-weight: bold; color: #555; text-transform: capitalize; margin-bottom: 6px; }
-.forecast-icon { font-size: 2.8rem; margin: 0; }
-.forecast-temp { font-size: 1.1rem; color: #333; font-weight: bold; }
-.forecast-temp .min { color: #999; font-weight: normal; font-size: 0.9rem; display: block; margin-top: -2px; }
-.forecast-desc { font-size: 0.75rem; color: #777; text-transform: capitalize; margin-top: 5px; }
-.forecast-precip { font-size: 0.75rem; color: #4a90e2; margin-top: 5px; line-height: 1.3; font-weight: bold;}
+.forecast-day { font-size: 0.8rem; font-weight: bold; color: #555; text-transform: capitalize; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100%;}
+.forecast-icon { font-size: 2.2rem; margin: 0; }
+.forecast-temp { font-size: 1rem; color: #333; font-weight: bold; }
+.forecast-temp .min { color: #999; font-weight: normal; font-size: 0.8rem; display: block; margin-top: -2px; }
+.forecast-desc { font-size: 0.7rem; color: #777; text-transform: capitalize; margin-top: 4px; line-height: 1.1; }
+.forecast-precip { font-size: 0.65rem; color: #4a90e2; margin-top: 4px; line-height: 1.1; font-weight: bold;}
 
 /* ============================================================
    GRÁFICO
@@ -485,14 +484,13 @@ h1 {
 #error-message { color: #e74c3c; margin-top: 15px; font-weight: bold; }
 
 /* ============================================================
-   RESPONSIVE (MÓVILES) - ACÁ ESTÁ LA MAGIA
+   RESPONSIVE (MÓVILES)
    ============================================================ */
 @media (max-width: 500px) {
     .container { 
         padding: 15px; 
     }
     
-    /* El buscador se pone uno arriba del otro */
     .search-box { 
         flex-direction: column; 
         gap: 8px; 
@@ -501,7 +499,6 @@ h1 {
         width: 100%; 
     }
     
-    /* El contenedor del clima se vuelve vertical */
     #weather-container { 
         flex-direction: column; 
         text-align: center; 
@@ -509,14 +506,11 @@ h1 {
         gap: 10px;
     }
     
-    /* El sol se hace GIGANTE y se centra */
     #weather-icon {
         font-size: 7rem; 
         margin: 0;
-        filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));
     }
     
-    /* Los textos se centran */
     #weather-info { 
         text-align: center; 
         width: 100%;
@@ -533,24 +527,37 @@ h1 {
         font-size: 3rem;
     }
     
-    /* La grilla de datos extra se pone en 1 sola columna */
     .details-grid { 
         grid-template-columns: 1fr; 
     }
 
-    /* Las tarjetas de los 5 días se ponen de a 2 por fila, perfectas */
+    /* Achicamos las tarjetas al máximo para que entren las 5 */
     #forecast-list {
-        grid-template-columns: repeat(2, 1fr);
+        gap: 4px;
     }
     .forecast-card {
-        min-height: 170px;
-        padding: 12px 8px;
+        min-height: 140px;
+        padding: 10px 2px;
     }
     .forecast-icon {
-        font-size: 3rem;
+        font-size: 1.8rem;
+    }
+    .forecast-day {
+        font-size: 0.65rem;
+    }
+    .forecast-temp {
+        font-size: 0.9rem;
+    }
+    .forecast-temp .min {
+        font-size: 0.75rem;
+    }
+    .forecast-desc {
+        font-size: 0.6rem;
+    }
+    .forecast-precip {
+        font-size: 0.6rem;
     }
     
-    /* Ajustes del Modal */
     .modal-content { 
         padding: 20px 15px; 
     }
