@@ -159,9 +159,14 @@ h1 {
     min-height: 150px;
 }
 
-/* Ícono del clima actual (EMOJI) */
+/* Ícono del clima actual (EMOJI PC) */
 #weather-icon {
-    font-size: 4rem;
+    font-size: 5rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5px;
 }
 
 #weather-info { text-align: left; flex: 1; }
@@ -323,7 +328,7 @@ h1 {
 
 /* Ícono de las horas (EMOJI) */
 .hour-icon {
-    font-size: 1.6rem;
+    font-size: 2rem;
     margin: 5px 0;
 }
 
@@ -375,7 +380,7 @@ h1 {
 
 /* Ícono de los 5 días (EMOJI) */
 .forecast-icon {
-    font-size: 1.8rem;
+    font-size: 2.5rem;
     margin: 5px 0;
 }
 
@@ -493,12 +498,28 @@ h1 {
 
 #error-message { color: #e74c3c; margin-top: 15px; font-weight: bold; }
 
+/* ============================================================
+   RESPONSIVE (MÓVILES)
+   ============================================================ */
 @media (max-width: 480px) {
     .container { padding: 20px; }
     h1 { font-size: 1.5rem; }
-    #weather-container { flex-direction: column; text-align: center; }
+    
+    /* Ajustes del clima en vertical */
+    #weather-container { 
+        flex-direction: column; 
+        text-align: center; 
+        gap: 10px; 
+    }
     #weather-info { text-align: center; }
     #city-header { justify-content: center; }
+    
+    /* Achicamos un toque el emoji para que no ocupe toda la pantalla */
+    #weather-icon {
+        font-size: 4.5rem; 
+        margin-right: 0;
+    }
+    
     .search-box { flex-direction: column; }
     .details-grid { grid-template-columns: 1fr; }
     .modal-content { padding: 20px 15px; }
