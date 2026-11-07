@@ -89,7 +89,7 @@ async function loadByCity(city, save=true) {
 }
 async function loadByCoords(lat, lon) {
   clearError();
-  localStorage.removeItem(STORAGE_CITY);
+  localStorage.removeItem(STORAGE_CITY); // Borra la ciudad guardada para priorizar el GPS
   await loadWeather({ lat, lon });
 }
 async function loadWeather(params) {
@@ -257,11 +257,26 @@ function searchCity() {
   if (city) loadByCity(city); else showError("Escribí una ciudad para buscar.");
 }
 function useLocation() {
-  if (!navigator.geolocation) { showError("Tu navegador no permite obtener la ubicación."); return; }
+  if (!navigator.geolocation) { 
+    // Si el navegador no soporta GPS, usamos la última ciudad guardada
+    const savedCity = localStorage.getItem(STORAGE_CITY);
+    if (savedCity) loadByCity(savedCity, false);
+    else showError("Tu navegador no permite obtener la ubicación."); 
+    return; 
+  }
+  
   els.updatedAt.textContent = "Buscando ubicación…";
+  
   navigator.geolocation.getCurrentPosition(
-    pos=>loadByCoords(pos.coords.latitude,pos.coords.longitude),
-    err=>showError(err.code===1?"No se concedió permiso para acceder a la ubicación.":"No pudimos determinar tu ubicación."),
+    pos => loadByCoords(pos.coords.latitude,pos.coords.longitude),
+    err => {
+      showError(err.code === 1 ? "No se concedió permiso para acceder a la ubicación." : "No pudimos determinar tu ubicación.");
+      els.updatedAt.textContent = "Ubicación no disponible";
+      
+      // Si falla el GPS o se deniega el permiso, cargamos la última ciudad guardada
+      const savedCity = localStorage.getItem(STORAGE_CITY);
+      if (savedCity) loadByCity(savedCity, false);
+    },
     {enableHighAccuracy:false,timeout:12000,maximumAge:300000}
   );
 }
@@ -275,6 +290,5 @@ els.modal.addEventListener("click",e=>{if(e.target.dataset.close==="true")closeM
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal();});
 
 renderFavorites();
-const savedCity = localStorage.getItem(STORAGE_CITY);
-if (savedCity) loadByCity(savedCity,false);
-else useLocation();
+// AL INICIAR: Siempre intenta obtener el GPS primero.
+useLocation();
